@@ -11,5 +11,6 @@ Nisl pulvinar taciti tellus diam quam dictum cursus potenti euismod natoque feug
     <string name="participants">Participants</string>
     <string name="price">Price</string>
     <string name="try_another">Try another</string>
-    <string name="hintNumberParticipants" >Enter a number</string>
+    <string name="hintNumberParticipants">Enter a number</string>
+    <string name="activities">Activities</string>
 </resources>
