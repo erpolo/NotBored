@@ -4,18 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/lightGreen"
     tools:context=".InfoActivity">
 
     <TextView
         android:id="@+id/tvType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Recreational"
+        android:fontFamily="@font/poppins_bold"
+        android:textColor="@color/salmon"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.060000002" />
+        app:layout_constraintVertical_bias="0.045"
+        tools:text="Recreational" />
 
     <ImageButton
         android:id="@+id/btnBack"
@@ -23,6 +29,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
+        android:backgroundTint="#00FFFFFF"
+        android:minHeight="48dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="?attr/actionModeCloseDrawable" />
@@ -32,21 +40,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
-        tools:text="Learn how to play a new sport"
+        android:fontFamily="@font/poppins_semibold"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:maxLines="2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvType"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="Learn how to play a new sport" />
 
     <TextView
         android:id="@+id/tvParticipants"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="175dp"
-        android:text="@string/participants"
         android:drawableStart="@drawable/ic_participants"
+        android:fontFamily="@font/poppins"
+        android:text="@string/participants"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.235"
@@ -59,6 +72,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:drawableStart="@drawable/ic_money"
+        android:fontFamily="@font/poppins"
         android:text="@string/price"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -72,25 +86,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="175dp"
-        tools:text="2"
+        android:fontFamily="@font/poppins"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.547"
         app:layout_constraintStart_toEndOf="@+id/tvParticipants"
         app:layout_constraintTop_toBottomOf="@+id/tvTitleActivity"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        tools:text="2" />
 
     <TextView
         android:id="@+id/tvShowPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        tools:text="Medium"
+        android:fontFamily="@font/poppins"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.547"
         app:layout_constraintStart_toEndOf="@+id/tvPrice"
         app:layout_constraintTop_toBottomOf="@+id/tvNumParticipants"
-        app:layout_constraintVertical_bias="0.115" />
+        app:layout_constraintVertical_bias="0.125"
+        tools:text="Medium" />
 
     <TextView
         android:id="@+id/tvTypeOpc"
@@ -98,13 +114,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:drawableStart="@drawable/ic_list"
-        tools:text="Opcional"
+        android:fontFamily="@font/poppins"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.206"
+        app:layout_constraintHorizontal_bias="0.222"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvPrice"
-        app:layout_constraintVertical_bias="0.025" />
+        app:layout_constraintVertical_bias="0.06"
+        tools:text="Opcional" />
 
     <Button
         android:id="@+id/btnTry"
@@ -112,6 +129,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="64dp"
         android:text="@string/try_another"
+        android:backgroundTint="@color/salmon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

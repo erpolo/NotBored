@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/lightGreen"
     tools:context=".ActivitiesActivity">
 
     <TextView
@@ -12,6 +13,9 @@
         android:layout_height="wrap_content"
         android:text="@string/activities"
         android:layout_marginTop="32dp"
+        android:textColor="@color/salmon"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
