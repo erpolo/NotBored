@@ -3,14 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/font/poppins_bold.xml" value="0.14114583333333333" />
-        <entry key="app/src/main/res/font/poppins_thin.xml" value="0.14114583333333333" />
-        <entry key="app/src/main/res/font/roboto.xml" value="0.21481481481481482" />
-        <entry key="app/src/main/res/layout/activity_activities.xml" value="0.10117375470589904" />
-        <entry key="app/src/main/res/layout/activity_info.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.23615509033203125" />
+        <entry key="app/src/main/res/layout-v26/activity_terms_and_conditions.xml" value="0.2171875" />
+        <entry key="app/src/main/res/layout/activity_activities.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_info.xml" value="0.31290079752604166" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_terms_and_conditions.xml" value="0.22281341552734377" />
-        <entry key="app/src/main/res/layout/template_types_item.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/template_types_item.xml" value="0.27309782608695654" />
       </map>
     </option>
   </component>

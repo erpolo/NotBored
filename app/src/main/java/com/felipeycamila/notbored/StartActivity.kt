@@ -3,7 +3,9 @@ package com.felipeycamila.notbored
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.felipeycamila.notbored.databinding.ActivityMainBinding
+import com.google.android.material.snackbar.Snackbar
 
 class StartActivity : AppCompatActivity() {
 
@@ -28,9 +30,13 @@ class StartActivity : AppCompatActivity() {
 
     private fun initStartBtn() {
         binding.btStart.setOnClickListener {
-            val etParticipant = binding.etParticipants
-            if (etParticipant.text.isBlank()){
-                // hacer ahorita
+            val participants = binding.etParticipants.text.toString()
+            if (participants.isBlank() || participants.toInt() > 0 ){
+                val intentToActivitiesActivity = Intent(this,ActivitiesActivity::class.java)
+                intentToActivitiesActivity.putExtra("participants",participants)
+                startActivity(intentToActivitiesActivity)
+            }else{
+                Snackbar.make(binding.root,getString(R.string.greaterNumber),Snackbar.LENGTH_LONG).show()
             }
         }
     }
