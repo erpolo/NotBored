@@ -3,15 +3,13 @@ package com.felipeycamila.notbored
 import com.google.gson.annotations.SerializedName
 
 data class ActivityModel(
-    @SerializedName("activity")
-    val activity: String,
+    var activity: String,
 
-    @SerializedName("price")
-    val price: Double,
+    var price: Double,
 
-    @SerializedName("type")
-    val type: String,
+    var type: String,
 
-    @SerializedName("participants")
-    val participants: Int
+    var participants: Int,
+
+    var error: String?
 )

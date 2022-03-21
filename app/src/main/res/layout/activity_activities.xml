@@ -25,13 +25,16 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="32dp"
+        android:divider="@drawable/list_divider"
+        android:dividerHeight="2dp"
+        tools:listitem="@layout/template_types_item"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvActivities" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/btRandom"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#00FFFFFF"
