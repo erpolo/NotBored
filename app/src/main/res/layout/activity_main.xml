@@ -46,6 +46,7 @@
         android:ems="10"
         android:hint="@string/hintNumberParticipants"
         android:inputType="number"
+        android:minHeight="48dp"
         android:textAlignment="viewStart"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -58,24 +59,40 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:text="Start"
         android:backgroundTint="@color/salmon"
-        app:layout_constraintBottom_toTopOf="@+id/tvTerms"
+        android:text="Start"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/tvTerms"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:fontFamily="@font/poppins_semibold"
-        android:text="@string/title_terms_and_conditions"
-        android:textStyle="bold"
-        android:textColorLink="@color/salmon"
-        android:autoLink="none"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/tvTerms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+
+            android:saveEnabled=""
+            android:fontFamily="@font/poppins_semibold"
+            android:outlineProvider="none"
+            android:autoLink="phone"
+            android:text="@string/title_terms_and_conditions"
+            android:textColorLink="@color/salmon"
+            android:textStyle="bold" />
+        <CheckBox
+            android:id="@+id/cbTermsAndCondition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
