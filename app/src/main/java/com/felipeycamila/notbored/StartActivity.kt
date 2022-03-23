@@ -41,23 +41,4 @@ class StartActivity : AppCompatActivity() {
             }
         }
     }
-
-    /*private fun checkParameters(participants: String, price: String): Boolean {
-        var success = true
-        when {
-            participants.toInt() < 0 -> {
-                success = false
-                Snackbar.make(binding.root, getString(R.string.greaterNumber), Snackbar.LENGTH_LONG)
-                    .show()
-                return success
-            }
-            price.toDouble() in 0.0..1.0 ->{
-                success = false
-                Snackbar.make(binding.root,getString(R.string.valueBetween), Snackbar.LENGTH_LONG)
-                    .show()
-                return success
-            }
-            else -> return success
-        }
-    }*/
 }
