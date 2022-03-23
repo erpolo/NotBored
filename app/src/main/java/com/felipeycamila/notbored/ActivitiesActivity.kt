@@ -23,13 +23,17 @@ class ActivitiesActivity : AppCompatActivity() {
     )
 
     private lateinit var binding: ActivityActivitiesBinding
+
     private lateinit var participants: String
+    private lateinit var price: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityActivitiesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         participants = intent.getStringExtra("participants").toString()
+        price = intent.getStringExtra("price").toString()
 
         initListView()
         initRandomBtn()
@@ -54,6 +58,7 @@ class ActivitiesActivity : AppCompatActivity() {
         val intentToInfoActivity = Intent(this,InfoActivity::class.java)
         intentToInfoActivity.putExtra("participants",participants)
         intentToInfoActivity.putExtra("type",type)
+        intentToInfoActivity.putExtra("price",price)
         startActivity(intentToInfoActivity)
     }
 }
