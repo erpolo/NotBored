@@ -9,15 +9,17 @@ import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.io.IOException
 import java.lang.Exception
 
 class InfoActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityInfoBinding
 
-    private lateinit var type: String
-    private lateinit var participants: String
-    private lateinit var price: String
+    private var type: String? = null
+    private var participants: String? = null
+    private var maxprice: String? = null
+    private var minprice: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,12 +27,10 @@ class InfoActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         try {
-            type = intent.extras?.getString("type")?.lowercase() ?: ""
-            participants = intent.extras?.getString("participants") ?: ""
-            price = intent.extras?.getString("price") ?: ""
-
-            getActivity(type, participants, price)
-        } catch (e: Exception) /* preguntarle a mariano */ {
+            setValues()
+            getActivity()
+        } catch (e: IOException) {
+            Snackbar.make(binding.root,getString(R.string.error_io), Snackbar.LENGTH_LONG).show()
             Log.e("Error", e.message.toString())
         }
 
@@ -39,13 +39,29 @@ class InfoActivity : AppCompatActivity() {
     }
 
 
-    private fun getActivity(type: String, participants: String, price: String) {
-        //esto lo podriamos pasar a una funcion setear parametros que luego llama a getActivity con los parametros correctos
-        val typeR: String? = if (type.isBlank()) null else type
-        val participantsR: String? = if (participants.isBlank()) null else participants
-        var minprice: String? = null
-        var maxprice: String? = null
-        when (price.lowercase()) {
+    private fun getActivity() {
+        CoroutineScope(Dispatchers.IO).launch {
+            val response = ApiAdapter().getApiService()
+                .getActivity(type, participants, minprice, maxprice)
+            if (response.isSuccessful) {
+                runOnUiThread {
+                    initView(response.body())
+                }
+            } else {
+                Snackbar.make(binding.root, getString(R.string.api_error), Snackbar.LENGTH_LONG).show()
+            }
+        }
+    }
+
+    private fun setValues() {
+        type = intent.extras?.getString(getString(R.string.type_app))?.lowercase()
+        participants = intent.extras?.getString(getString(R.string.participants_app))
+        val price = intent.extras?.getString(getString(R.string.price_app))?.lowercase()
+
+        type = if (type.isNullOrBlank()) null else type
+        participants = if (participants.isNullOrBlank()) null else participants
+
+        when (price) {
             "free" -> {
                 maxprice = "0.0"
             }
@@ -61,38 +77,27 @@ class InfoActivity : AppCompatActivity() {
                 minprice = "0.7"
             }
         }
-
-        CoroutineScope(Dispatchers.IO).launch {
-            val response = ApiAdapter().getApiService()
-                .getActivity(typeR, participantsR, minprice, maxprice)
-            if (response.isSuccessful) {
-                runOnUiThread {
-                    initView(response.body())
-                }
-            } else {
-                Snackbar.make(binding.root, "Api not responding :'C ", Snackbar.LENGTH_LONG).show()
-            }
-        }
     }
 
-    private fun initView(values: ActivityModel?, random: Boolean = false) {
+
+    private fun initView(values: ActivityModel?) {
         values?.let {
             it.error?.let {
                 Snackbar.make(binding.root, it, Snackbar.LENGTH_LONG).show()
             } ?: run {
                 when {
-                    values.price == 0.0 -> binding.tvShowPrice.text = "Free"
-                    values.price <= 0.3 -> binding.tvShowPrice.text = "Low"
-                    values.price <= 0.6 -> binding.tvShowPrice.text = "Medium"
-                    else -> binding.tvShowPrice.text = "High"
+                    values.price == 0.0 -> binding.tvShowPrice.text = getString(R.string.free)
+                    values.price <= 0.3 -> binding.tvShowPrice.text = getString(R.string.low)
+                    values.price <= 0.6 -> binding.tvShowPrice.text = getString(R.string.medium)
+                    else -> binding.tvShowPrice.text = getString(R.string.high)
                 }
                 binding.tvNumParticipants.text = values.participants.toString()
                 binding.tvType.text = values.type.replaceFirstChar { it.uppercase() }
                 binding.tvTitleActivity.text = values.activity
-                if (random) {
+                if (type.isNullOrBlank()) {
                     binding.tvTypeOpc.visibility = View.VISIBLE
                     binding.tvTypeOpc.text = values.type
-                    binding.tvType.text = "Random"
+                    binding.tvType.text = getString(R.string.random)
                 }
             }
         }
@@ -102,8 +107,9 @@ class InfoActivity : AppCompatActivity() {
         val btnTry = binding.btnTry
         btnTry.setOnClickListener {
             try {
-                getActivity(type, participants, price)
-            } catch (e: Exception) /* preguntarle a mariano */ {
+                getActivity()
+            } catch (e: IOException) {
+                Snackbar.make(binding.root,getString(R.string.error_io), Snackbar.LENGTH_LONG).show()
                 Log.e("Error", e.message.toString())
             }
         }

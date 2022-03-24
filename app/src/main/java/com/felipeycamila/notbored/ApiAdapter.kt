@@ -13,5 +13,4 @@ class ApiAdapter {
     }
 
     fun getApiService() = getRetrofit().create(ApiService::class.java)
-
 }

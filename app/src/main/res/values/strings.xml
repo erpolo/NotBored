@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">NotBored</string>
+    <string name="app_name" translatable="false">NotBored</string>
 
     <string name="txt_lorem">Lorem ipsum dolor sit amet consectetur adipiscing elit inceptos ridiculus iaculis, nullam ligula elementum duis tellus maecenas nec fermentum sed dictum laoreet, taciti donec habitant quam purus ultricies porta posuere sociis. Cubilia senectus netus integer tempor dignissim viverra nostra tellus scelerisque aliquet, semper penatibus tempus sociosqu class sociis bibendum justo etiam, rutrum aenean et eget pretium volutpat eu dictum dictumst.
 Praesent gravida ridiculus cursus luctus maecenas in libero mi interdum, auctor ullamcorper eget nam eros condimentum litora tristique erat, fusce rhoncus mauris cras aptent non et ultricies. Iaculis porttitor etiam pulvinar proin fringilla ad, sem ornare sociosqu ultrices litora himenaeos egestas, eros laoreet mauris leo porta. Nibh interdum facilisis dapibus magnis phasellus tortor fusce nostra quam, ante non elementum himenaeos id hac et hendrerit eros, dui at sollicitudin turpis viverra molestie cras quis.
@@ -7,7 +7,7 @@ Dignissim faucibus auctor in vitae porttitor tellus nascetur tempor sociosqu, el
 Nisl pulvinar taciti tellus diam quam dictum cursus potenti euismod natoque feugiat mattis ornare tortor, aliquam orci dapibus inceptos id egestas ante viverra donec aptent suscipit nulla. Eget nisl fringilla cras felis maecenas nisi ridiculus id
  conubia hac primis sem ullamcorper porttitor, rutrum ac sodales ultrices vestibulum cum leo semper fusce porta eu fermentum. Proin nisi suspendisse class facilisi curabitur quisque, fusce vulputate semper a nulla velit, duis in orci faucibus turpis. Risus metus magnis aliquam accumsan laoreet congue per, tempus purus et odio senectus sodales vulputate, ligula malesuada dis habitasse nullam pellentesque.</string>
     <string name="title_terms_and_conditions">Terms and conditions</string>
-    <string name="name_app">Not Bored</string>
+    <string name="name_app" translatable="false">Not Bored</string>
     <string name="participants">Participants</string>
     <string name="price">Price</string>
     <string name="try_another">Try another</string>
@@ -18,4 +18,16 @@ Nisl pulvinar taciti tellus diam quam dictum cursus potenti euismod natoque feug
     <string name="valueBetween">"Enter a value between 0 and 1"</string>
     <string name="example_price">Enter a range</string>
     <string name="acceptTerms">Please accept Terms and Conditions to continue</string>
+    <string name="error_io">An error ocurred, please check your internet conection</string>
+    <string name="random">Random</string>
+    <string name="free">Free</string>
+    <string name="medium">Medium</string>
+    <string name="low">Low</string>
+    <string name="high">High</string>
+    <string name="api_error">Api not responding :\'C </string>
+    <string name="participants_app" translatable="false">participants</string>
+    <string name="type_app" translatable="false">type</string>
+    <string name="price_app" translatable="false">price</string>
+   <string name="start">Start</string>
+
 </resources>
