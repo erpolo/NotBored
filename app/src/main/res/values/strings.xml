@@ -14,4 +14,7 @@ Nisl pulvinar taciti tellus diam quam dictum cursus potenti euismod natoque feug
     <string name="hintNumberParticipants">Enter a number</string>
     <string name="activities">Activities</string>
     <string name="greaterNumber">Please enter a number greater than 0</string>
+    <string name="allowedNumber">Please enter an allowed value</string>
+    <string name="valueBetween">"Enter a value between 0 and 1"</string>
+    <string name="example_price">Enter a range</string>
 </resources>
