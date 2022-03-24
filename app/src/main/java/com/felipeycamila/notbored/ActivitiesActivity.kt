@@ -10,7 +10,7 @@ import com.felipeycamila.notbored.databinding.ActivityActivitiesBinding
 
 class ActivitiesActivity : AppCompatActivity() {
 
-    private val typeList = listOf<String>(
+    private val typeList = listOf(
         "Education",
         "Recreational",
         "Social",
@@ -32,8 +32,8 @@ class ActivitiesActivity : AppCompatActivity() {
         binding = ActivityActivitiesBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        participants = intent.getStringExtra("participants").toString()
-        price = intent.getStringExtra("price").toString()
+        participants = intent.getStringExtra(getString(R.string.participants_app)).toString()
+        price = intent.getStringExtra(getString(R.string.price_app)).toString()
 
         initListView()
         initRandomBtn()
@@ -56,9 +56,9 @@ class ActivitiesActivity : AppCompatActivity() {
 
     private fun toActivityInfo(type:String){
         val intentToInfoActivity = Intent(this,InfoActivity::class.java)
-        intentToInfoActivity.putExtra("participants",participants)
-        intentToInfoActivity.putExtra("type",type)
-        intentToInfoActivity.putExtra("price",price)
+        intentToInfoActivity.putExtra(getString(R.string.participants_app),participants)
+        intentToInfoActivity.putExtra(getString(R.string.type_app),type)
+        intentToInfoActivity.putExtra(getString(R.string.price_app),price)
         startActivity(intentToInfoActivity)
     }
 }

@@ -11,7 +11,6 @@
         android:id="@+id/tvType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:capitalize="sentences"
         android:fontFamily="@font/poppins_bold"
         android:textColor="@color/salmon"
         android:textSize="24sp"
@@ -61,7 +60,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="175dp"
-        android:drawableStart="@drawable/ic_participants"
         android:fontFamily="@font/poppins"
         android:text="@string/participants"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -69,13 +67,13 @@
         app:layout_constraintHorizontal_bias="0.235"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvTitleActivity"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        app:drawableStartCompat="@drawable/ic_participants" />
 
     <TextView
         android:id="@+id/tvPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:drawableStart="@drawable/ic_money"
         android:fontFamily="@font/poppins"
         android:text="@string/price"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -83,7 +81,8 @@
         app:layout_constraintHorizontal_bias="0.208"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvParticipants"
-        app:layout_constraintVertical_bias="0.115" />
+        app:layout_constraintVertical_bias="0.115"
+        app:drawableStartCompat="@drawable/ic_money" />
 
     <TextView
         android:id="@+id/tvNumParticipants"
@@ -117,7 +116,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:drawableStart="@drawable/ic_list"
         android:fontFamily="@font/poppins"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -126,7 +124,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvPrice"
         app:layout_constraintVertical_bias="0.06"
-        tools:text="Opcional" />
+        tools:text="Optional"
+        app:drawableStartCompat="@drawable/ic_list" />
 
     <Button
         android:id="@+id/btnTry"
