@@ -28,17 +28,23 @@ class StartActivity : AppCompatActivity() {
 
     private fun initStartBtn() {
         binding.btStart.setOnClickListener {
-            val participants = binding.etParticipants.text.toString()
-            val price = binding.etPrice.text.toString()
-            if ((participants.isBlank() || participants.toInt() > 0)) {
-                val intentToActivitiesActivity = Intent(this, ActivitiesActivity::class.java)
-                intentToActivitiesActivity.putExtra("participants", participants)
-                intentToActivitiesActivity.putExtra("price", price)
-                startActivity(intentToActivitiesActivity)
-            } else {
-                Snackbar.make(binding.root, getString(R.string.allowedNumber), Snackbar.LENGTH_LONG)
+            if (binding.cbTermsAndCondition.isChecked){
+                val participants = binding.etParticipants.text.toString()
+                val price = binding.etPrice.text.toString()
+                if ((participants.isBlank() || participants.toInt() > 0)) {
+                    val intentToActivitiesActivity = Intent(this, ActivitiesActivity::class.java)
+                    intentToActivitiesActivity.putExtra("participants", participants)
+                    intentToActivitiesActivity.putExtra("price", price)
+                    startActivity(intentToActivitiesActivity)
+                } else {
+                    Snackbar.make(binding.root, getString(R.string.allowedNumber), Snackbar.LENGTH_LONG)
+                        .show()
+                }
+            }else{
+                Snackbar.make(binding.root, getString(R.string.acceptTerms), Snackbar.LENGTH_LONG)
                     .show()
             }
+
         }
     }
 }

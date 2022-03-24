@@ -17,4 +17,5 @@ Nisl pulvinar taciti tellus diam quam dictum cursus potenti euismod natoque feug
     <string name="allowedNumber">Please enter an allowed value</string>
     <string name="valueBetween">"Enter a value between 0 and 1"</string>
     <string name="example_price">Enter a range</string>
+    <string name="acceptTerms">Please accept Terms and Conditions to continue</string>
 </resources>
