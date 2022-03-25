@@ -1,4 +1,4 @@
-package com.felipeycamila.notbored
+package com.felipeycamila.notbored.model
 
 import com.google.gson.annotations.SerializedName
 

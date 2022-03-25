@@ -1,16 +1,20 @@
-package com.felipeycamila.notbored
+package com.felipeycamila.notbored.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import com.felipeycamila.notbored.R
 import com.felipeycamila.notbored.databinding.ActivityInfoBinding
+import com.felipeycamila.notbored.model.ActivityModel
+import com.felipeycamila.notbored.service.ApiAdapter
 import com.google.android.material.snackbar.Snackbar
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.io.IOException
 import java.lang.Exception
+import java.net.UnknownHostException
 
 class InfoActivity : AppCompatActivity() {
 
@@ -26,33 +30,13 @@ class InfoActivity : AppCompatActivity() {
         binding = ActivityInfoBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        try {
-            setValues()
-            getActivity()
-        } catch (e: IOException) {
-            Snackbar.make(binding.root,getString(R.string.error_io), Snackbar.LENGTH_LONG).show()
-            Log.e("Error", e.message.toString())
-        }
-
+        setValues()
+        getActivity()
         initBackBtn()
         initTryAnotherBtn()
     }
 
-
-    private fun getActivity() {
-        CoroutineScope(Dispatchers.IO).launch {
-            val response = ApiAdapter().getApiService()
-                .getActivity(type, participants, minprice, maxprice)
-            if (response.isSuccessful) {
-                runOnUiThread {
-                    initView(response.body())
-                }
-            } else {
-                Snackbar.make(binding.root, getString(R.string.api_error), Snackbar.LENGTH_LONG).show()
-            }
-        }
-    }
-
+    //This function saves the values and works them to be later used in the API call
     private fun setValues() {
         type = intent.extras?.getString(getString(R.string.type_app))?.lowercase()
         participants = intent.extras?.getString(getString(R.string.participants_app))
@@ -79,7 +63,33 @@ class InfoActivity : AppCompatActivity() {
         }
     }
 
+    //This function calls the API and if the response was successful it starts the view of this activity
+    private fun getActivity() {
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val response = ApiAdapter().getApiService()
+                    .getActivity(type, participants, minprice, maxprice)
+                if (response.isSuccessful) {
+                    runOnUiThread {
+                        initView(response.body())
+                    }
+                } else {
+                    Snackbar.make(binding.root, getString(R.string.api_error), Snackbar.LENGTH_LONG)
+                        .show()
+                }
+            } catch (e: UnknownHostException) {
+                Log.e("Error", e.message.toString())
+                Snackbar.make(binding.root, getString(R.string.error_io), Snackbar.LENGTH_LONG)
+                    .show()
+            }
+        }
+    }
 
+    /**
+     * This function works with the API response, setting the UI for the user,
+     * when there is no type of activity it sets what is necessary to show Random
+     * @param values (api response)
+     */
     private fun initView(values: ActivityModel?) {
         values?.let {
             it.error?.let {
@@ -103,15 +113,11 @@ class InfoActivity : AppCompatActivity() {
         }
     }
 
+    //This function is launched when the user presses Try Another and calls the api again.
     private fun initTryAnotherBtn() {
         val btnTry = binding.btnTry
         btnTry.setOnClickListener {
-            try {
-                getActivity()
-            } catch (e: IOException) {
-                Snackbar.make(binding.root,getString(R.string.error_io), Snackbar.LENGTH_LONG).show()
-                Log.e("Error", e.message.toString())
-            }
+            getActivity()
         }
     }
 

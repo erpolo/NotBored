@@ -1,4 +1,4 @@
-package com.felipeycamila.notbored
+package com.felipeycamila.notbored.view
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity

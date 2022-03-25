@@ -1,4 +1,4 @@
-package com.felipeycamila.notbored
+package com.felipeycamila.notbored.service
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

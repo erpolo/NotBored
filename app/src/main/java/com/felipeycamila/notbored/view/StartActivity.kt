@@ -1,10 +1,10 @@
-package com.felipeycamila.notbored
+package com.felipeycamila.notbored.view
+
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.View
 import android.widget.RadioButton
+import com.felipeycamila.notbored.R
 import com.felipeycamila.notbored.databinding.ActivityStartBinding
 import com.google.android.material.snackbar.Snackbar
 
@@ -32,9 +32,13 @@ class StartActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * This function verifies that the user has accepted the terms, collects the parameters,
+     * and starts the next activity.
+     */
     private fun initStartBtn() {
         binding.btStart.setOnClickListener {
-            if (binding.cbTermsAndCondition.isChecked){
+            if (binding.cbTermsAndCondition.isChecked) {
                 val participants = binding.etParticipants.text.toString()
                 if ((participants.isBlank() || participants.toInt() > 0)) {
                     val intentToActivitiesActivity = Intent(this, ActivitiesActivity::class.java)
@@ -45,8 +49,8 @@ class StartActivity : AppCompatActivity() {
                     Snackbar.make(binding.root, getString(R.string.allowedNumber), Snackbar.LENGTH_LONG)
                         .show()
                 }
-            }else{
-                Snackbar.make(binding.root, getString(R.string.acceptTerms), Snackbar.LENGTH_LONG)
+            } else {
+                Snackbar.make(binding.root, getString(R.string.acceptTerms), Snackbar.LENGTH_SHORT)
                     .show()
             }
         }
@@ -59,11 +63,12 @@ class StartActivity : AppCompatActivity() {
         binding.rbHigh.setOnClickListener { onRadioButtonClick(it as RadioButton) }
     }
 
-    private fun onRadioButtonClick(rbChecked : RadioButton){
-        if(rbChecked.text.toString() == price){
+    //This function is used to toggle and untoggle the radioButtons corresponding to the price
+    private fun onRadioButtonClick(rbChecked: RadioButton) {
+        if (rbChecked.text.toString() == price) {
             binding.rgPrice.clearCheck()
             price = ""
-        }else{
+        } else {
             price = rbChecked.text.toString()
         }
     }

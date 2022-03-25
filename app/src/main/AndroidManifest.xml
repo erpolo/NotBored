@@ -12,16 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NotBored">
         <activity
-            android:name=".ActivitiesActivity"
+            android:name=".view.ActivitiesActivity"
             android:exported="false" />
         <activity
-            android:name=".InfoActivity"
+            android:name=".view.InfoActivity"
             android:exported="false" />
         <activity
-            android:name=".TermsAndConditions"
+            android:name=".view.TermsAndConditions"
             android:exported="false" />
         <activity
-            android:name=".StartActivity"
+            android:name=".view.StartActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

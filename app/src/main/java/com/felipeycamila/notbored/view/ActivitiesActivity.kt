@@ -1,11 +1,10 @@
-package com.felipeycamila.notbored
+package com.felipeycamila.notbored.view
 
 import android.content.Intent
-import android.content.pm.ActivityInfo
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.ArrayAdapter
+import com.felipeycamila.notbored.R
 import com.felipeycamila.notbored.databinding.ActivityActivitiesBinding
 
 class ActivitiesActivity : AppCompatActivity() {
@@ -45,6 +44,7 @@ class ActivitiesActivity : AppCompatActivity() {
         }
     }
 
+    //Start the view for this activity by displaying the list of activities
     private fun initListView() {
         val adapter =
             ArrayAdapter<String>(this, R.layout.template_types_item, R.id.tvItemTypes, typeList)
@@ -54,8 +54,12 @@ class ActivitiesActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     *This function is launched when an activity is clicked, it gathers all the information and calls the next activity (infoActivity)
+     * @param type (the type of activity selected)
+     */
     private fun toActivityInfo(type:String){
-        val intentToInfoActivity = Intent(this,InfoActivity::class.java)
+        val intentToInfoActivity = Intent(this, InfoActivity::class.java)
         intentToInfoActivity.putExtra(getString(R.string.participants_app),participants)
         intentToInfoActivity.putExtra(getString(R.string.type_app),type)
         intentToInfoActivity.putExtra(getString(R.string.price_app),price)
