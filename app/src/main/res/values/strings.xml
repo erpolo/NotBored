@@ -28,6 +28,6 @@ Nisl pulvinar taciti tellus diam quam dictum cursus potenti euismod natoque feug
     <string name="participants_app" translatable="false">participants</string>
     <string name="type_app" translatable="false">type</string>
     <string name="price_app" translatable="false">price</string>
-   <string name="start">Start</string>
+    <string name="start">Start</string>
 
 </resources>
